@@ -1,0 +1,7 @@
+AOM:
+  note: >
+    <a href="https://github.com/advanced-online-marketing/AOM/issues/52#issuecomment-538425286">
+    AOM doesn't seem to be maintained anymore
+    </a>
+GoogleAuthenticator:
+  note: This plugin is now replaced with a core feature.
