@@ -36,9 +36,11 @@ def preprocess_plugin_data(plugin):
 def get_all_plugins():
     plugins = OrderedDict()
     matomo4_plugins = fetch_plugins("4.0.0")
-
+    supported_plugins = 0
+    unsupported_plugins = 0
     for plugin in matomo4_plugins:
         plugin["supports4"] = True
+        supported_plugins += 1
         plugin = preprocess_plugin_data(plugin)
         plugins[plugin["name"]] = plugin
 
@@ -50,6 +52,7 @@ def get_all_plugins():
 
         name = plugin["name"]
         if name not in plugins:
+            unsupported_plugins += 1
             plugins[name] = plugin
 
     def function(plugin):
@@ -61,6 +64,7 @@ def get_all_plugins():
     for name in ["CustomDimensions"]:
         # CustomDimensions became a core plugin
         del plugins[name]
+        unsupported_plugins -= 1
 
     data = load_additional_data()
     plugins_new = {}
@@ -72,4 +76,4 @@ def get_all_plugins():
     plugins = OrderedDict(
         sorted(plugins.items(),
                key=function))
-    return plugins
+    return plugins, supported_plugins, unsupported_plugins

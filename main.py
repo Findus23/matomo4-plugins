@@ -11,10 +11,13 @@ output_html_file = Path("public/index.html")
 
 sp = run(["git", "rev-parse", "--verify", "HEAD"], capture_output=True)
 commit = sp.stdout.decode().strip()
-
+plugins, supported, unsupported = get_all_plugins()
 template = Template(template_file.read_text(), autoescape=True, undefined=StrictUndefined)
 output_html_file.write_text(template.render({
-    "plugins": get_all_plugins(),
+    "plugins": plugins,
     "commit": commit,
-    "now": datetime.now()
+    "now": datetime.now(),
+    "supported": supported,
+    "unsupported": unsupported,
+    "fraction": supported / (supported + unsupported) * 100
 }))

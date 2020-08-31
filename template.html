@@ -30,7 +30,7 @@
 			font-weight: bold;
 		}
 
-		.card {
+		.card, .progress {
 			margin-bottom: 1rem;
 		}
 
@@ -39,20 +39,27 @@
 			height: 16px;
 		}
 
-        footer {
-            display: flex;
-            justify-content: space-between;
+		footer {
+			display: flex;
+			justify-content: space-between;
 
-        }
-        footer span,footer a {
-            display: block;
-        }
+		}
+
+		footer span, footer a {
+			display: block;
+		}
     </style>
 </head>
 <body>
 <div class="container">
     <h1 class="mt-5">Matomo Plugins</h1>
     <p class="lead">Tracking the current progress in making all Matomo plugins support Matomo 4!</p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ fraction }}%;" aria-valuenow="{{ fraction }}"
+             aria-valuemin="0" aria-valuemax="100">
+            {{ supported }} of {{ supported + unsupported }}
+        </div>
+    </div>
     {% for name,plugin in plugins.items() %}
         <div class="card {% if plugin.supports4 %}matomo4{% else %}matomo3{% endif %}">
             <div class="card-body">
