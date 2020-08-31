@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  },
+  "name": "matomo4-plugins",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Findus23/matomo4-plugins.git",
+  "author": "Lukas Winkler <git@lw1.at>",
+  "license": "MIT"
+}

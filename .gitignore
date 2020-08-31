@@ -1,5 +1,7 @@
 .idea/
 node_modules/
 *.json
+!package.json
 config.py
 __pycache__/
+public/index.html
