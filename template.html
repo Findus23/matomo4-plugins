@@ -38,6 +38,15 @@
 			width: 16px;
 			height: 16px;
 		}
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+
+        }
+        footer span,footer a {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -94,6 +103,7 @@
     <footer>
         <a href="https://lw1.at/i">Imprint and Privacy</a>
         <a href="https://github.com/Findus23/matomo4-plugins/tree/{{ commit }}">Source</a>
+        <span>Generated at {{ now }}</span>
     </footer>
 </div>
 </body>

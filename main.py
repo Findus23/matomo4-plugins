@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from subprocess import run
 
@@ -11,8 +12,9 @@ output_html_file = Path("public/index.html")
 sp = run(["git", "rev-parse", "--verify", "HEAD"], capture_output=True)
 commit = sp.stdout.decode().strip()
 
-template = Template(template_file.read_text(), autoescape=True,undefined=StrictUndefined)
+template = Template(template_file.read_text(), autoescape=True, undefined=StrictUndefined)
 output_html_file.write_text(template.render({
     "plugins": get_all_plugins(),
-    "commit":commit
+    "commit": commit,
+    "now": datetime.now()
 }))
