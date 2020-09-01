@@ -3,9 +3,60 @@ AOM:
     <a href="https://github.com/advanced-online-marketing/AOM/issues/52#issuecomment-538425286">
     AOM doesn't seem to be maintained anymore
     </a>
+
 GoogleAuthenticator:
   note: This plugin is now replaced with a core feature.
   supports4: true
 
 IntranetGeoIP:
   issue: https://github.com/ThaDafinser/Piwik-IntranetGeoIP/issues/44
+
+BotTracker:
+  issue: https://github.com/Thomas--F/BotTracker/issues/66
+
+CustomOptOut:
+  issue: https://github.com/Zeichen32/PiwikCustomOptOut/issues/62
+
+LiveTab:
+  issue: https://github.com/tsteur/matomo-livetab-plugin/issues/5
+
+LoginHttpAuth:
+  issue: https://github.com/matomo-org/plugin-LoginHttpAuth/issues/26
+  note: >
+    <blockquote class="blockquote">
+    We are only supporting this plugin up to Matomo 3 and we will no longer support it as part of Matomo 4 due to little usage.
+    If you are interested in maintaining this plugin and making it compatible with Matomo 4 please get in touch.
+    </blockquote>
+
+Ip2Hostname:
+  issue: https://github.com/ThaDafinser/Piwik-Ip2Hostname/issues/6
+
+FacebookPageWidgetByAmperage:
+  issue: https://github.com/AMPERAGE-Marketing/Matomo-Facebook-Page-Widget/issues/2
+
+RerUserDates:
+  issue: https://github.com/RegioneER/RerUserDates/issues/15
+
+ExcludeByDDNS:
+  issue: https://github.com/sgiehl/piwik-plugin-ExcludeByDDNS/issues/21
+
+HidePasswordReset:
+  issue: https://github.com/jbrule/matomoplugin-HidePasswordReset/issues/2
+
+TrackingCodeCustomizer:
+  issue: https://github.com/jbrule/piwikplugin-TrackingCodeCustomizer/issues/5
+
+AdminNotification:
+  issue: https://github.com/jbrule/piwikplugin-AdminNotification/issues/5
+
+FreeMobileMessaging:
+  issue: https://github.com/apapillon/piwik-freemobilesmsprovider-plugin/issues/4
+
+SharpSpringWidgetByAmperage:
+  issue: https://github.com/AMPERAGE-Marketing/Matomo-SharpSpring-Widget/issues/1
+
+ShortcodeTracker:
+  issue: https://github.com/mgazdzik/plugin-ShortcodeTracker/issues/37
+
+DevicePixelRatio:
+  issue: https://github.com/johsin18/DevicePixelRatioMatomoPlugin/issues/1
