@@ -105,7 +105,7 @@
                     <dt class="col-sm-3">Supports Versions</dt>
                     <dd class="col-sm-9">{{ plugin.supports_version }}</dd>
                 </dl>
-                {% if plugin.issue is defined and plugin.issue %}
+                {% if plugin.issue is defined and plugin.issue and not plugin.supports4 %}
                     <p><a href="{{ plugin.issue }}" target="github_issue" rel="noopener">Github issue</a></p>
                 {% endif %}
                 {% if plugin.note is defined %}
