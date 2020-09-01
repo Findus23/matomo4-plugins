@@ -60,3 +60,6 @@ ShortcodeTracker:
 
 DevicePixelRatio:
   issue: https://github.com/johsin18/DevicePixelRatioMatomoPlugin/issues/1
+
+ApiGetWithSitesInfo:
+  note: This plugin is deprecated
