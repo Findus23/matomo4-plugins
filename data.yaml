@@ -6,3 +6,6 @@ AOM:
 GoogleAuthenticator:
   note: This plugin is now replaced with a core feature.
   supports4: true
+
+IntranetGeoIP:
+  issue: https://github.com/ThaDafinser/Piwik-IntranetGeoIP/issues/44

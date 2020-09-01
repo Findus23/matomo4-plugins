@@ -65,11 +65,11 @@
             <div class="card-body">
                 <div class="supports">{% if plugin.supports4 %}✓{% else %}✗{% endif %}</div>
                 <h5 class="card-title">
-                    <a href="https://plugins.matomo.org/{{ name }}" target="marketplace">
+                    <a href="https://plugins.matomo.org/{{ name }}" target="marketplace" rel="noopener">
                         {{ name }}
                     </a>
                     {% if plugin.repositoryUrl %}
-                        <a href="{{ plugin.repositoryUrl }}" target="github">
+                        <a href="{{ plugin.repositoryUrl }}" target="github" rel="noopener">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                                 <!-- Source: Simplified from https://github.com/logos -->
                                 <title>Source</title>
@@ -84,7 +84,8 @@
                 <p class="card-text">
                     by
                     {% for author in plugin.authors %}
-                        <a href="{{ author.homepage }}" class="{% if author.name == "Matomo" %}byMatomo{% endif %}">
+                        <a href="{{ author.homepage }}" class="{% if author.name == "Matomo" %}byMatomo{% endif %}"
+                           target="homepage" rel="noopener">
                             {{ author.name }}{% if not loop.last %},{% endif %}
                         </a>
                     {% endfor %}
@@ -99,6 +100,9 @@
                     <dt class="col-sm-3">Supports Versions</dt>
                     <dd class="col-sm-9">{{ plugin.supports_version }}</dd>
                 </dl>
+                {% if plugin.issue is defined and plugin.issue %}
+                    <p><a href="{{ plugin.issue }}" target="github_issue" rel="noopener">Github issue</a></p>
+                {% endif %}
                 {% if plugin.note is defined %}
                     <p class="card-text">
                         <strong>Note:</strong> {{ plugin.note|safe }}
