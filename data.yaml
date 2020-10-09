@@ -63,3 +63,12 @@ DevicePixelRatio:
 
 ApiGetWithSitesInfo:
   note: This plugin is deprecated
+
+GroupPermissions:
+  issue: https://github.com/MichaelRoosz/plugin-GroupPermissions/issues/2
+
+DeviceNetworkInformation:
+  issue: https://github.com/MichaelRoosz/plugin-DeviceNetworkInformation/issues/1
+
+CloudflareLocationProvider:
+  issue: https://github.com/aholkner/matomo-cloudflare-location-provider/issues/3
