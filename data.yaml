@@ -72,3 +72,15 @@ DeviceNetworkInformation:
 
 CloudflareLocationProvider:
   issue: https://github.com/aholkner/matomo-cloudflare-location-provider/issues/3
+
+SentryLogger:
+  note: If someone is interested in maintaining this plugin, please contact the author.
+
+LoginOIDC:
+  issue: https://github.com/dominik-th/matomo-plugin-LoginOIDC/issues/29
+
+Signup:
+  issue: https://github.com/alcalyn/matomo-plugin-signup/issues/4
+
+PasswordPolicyEnforcer:
+  issue: https://github.com/simivar/matomo-password-policy-enforcer/issues/6
