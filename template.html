@@ -95,6 +95,9 @@
                         </a>
                     {% endfor %}
                 </p>
+                {% if plugin.isTheme %}
+                    <p><strong>Theme</strong></p>
+                {% endif %}
                 <dl class="row">
                     {% if plugin.numDownloads %}
                         <dt class="col-sm-3">Downloads</dt>

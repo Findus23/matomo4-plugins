@@ -7,7 +7,7 @@ import yaml
 
 from config import FAKE_API
 
-BASEURL = "https://plugins.matomo.org/api/2.0/plugins"
+BASEURL = "https://plugins.matomo.org/api/2.0/"
 
 
 def load_additional_data():
@@ -15,11 +15,11 @@ def load_additional_data():
         return yaml.safe_load(f)
 
 
-def fetch_plugins(version="3.30.0") -> List[Dict]:
+def fetch_plugins(version="3.30.0", themes=False) -> List[Dict]:
     if FAKE_API:
         with open(version + ".json") as f:
             return json.load(f)["plugins"]
-    r = requests.get(BASEURL + "?piwik=" + version)
+    r = requests.get(BASEURL + ("themes" if themes else "plugins") + "?piwik=" + version)
     return r.json()["plugins"]
 
 
@@ -36,6 +36,7 @@ def preprocess_plugin_data(plugin):
 def get_all_plugins():
     plugins = OrderedDict()
     matomo4_plugins = fetch_plugins("4.0.0")
+    matomo4_plugins += fetch_plugins("4.0.0", themes=True)
     supported_plugins = 0
     unsupported_plugins = 0
     for plugin in matomo4_plugins:
@@ -45,6 +46,7 @@ def get_all_plugins():
         plugins[plugin["name"]] = plugin
 
     matomo3_plugins = fetch_plugins()
+    matomo3_plugins += fetch_plugins(themes=True)
 
     for plugin in matomo3_plugins:
         plugin["supports4"] = False
