@@ -70,7 +70,7 @@
             <div class="card-body">
                 <div class="supports">{% if plugin.supports4 %}✓{% else %}✗{% endif %}</div>
                 <h5 class="card-title">
-                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion={% if not plugin.supports4 %}4{% else %}3{% endif %}"
+                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion={% if plugin.supports4 %}4{% else %}3{% endif %}"
                        target="marketplace" rel="noopener">
                         {{ name }}
                     </a>
