@@ -47,10 +47,8 @@ def get_all_plugins(majorversion: int):
         plugin = preprocess_plugin_data(plugin)
         plugins[plugin["name"]] = plugin
 
-    print(len(matomo_new_plugins))
     matomo_previous_plugins = fetch_plugins(f"{majorversion - 1}.30.0")
     matomo_previous_plugins += fetch_plugins(f"{majorversion - 1}.30.0", themes=True)
-    print(len(matomo_previous_plugins))
 
     for plugin in matomo_previous_plugins:
         plugin["supports_new"] = False
