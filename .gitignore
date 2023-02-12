@@ -5,3 +5,4 @@ node_modules/
 config.py
 __pycache__/
 public/index.html
+public/*/index.html

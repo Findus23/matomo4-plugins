@@ -5,10 +5,10 @@ description = ""
 authors = ["Lukas Winkler <git@lw1.at>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-jinja2 = "^2.11.2"
+python = "^3.10"
+jinja2 = "^3.0.0"
 requests = "^2.24.0"
-pyyaml = "^5.3.1"
+pyyaml = "^6.0.0"
 
 [tool.poetry.dev-dependencies]
 

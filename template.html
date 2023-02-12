@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matomo 4 Plugins</title>
+    <title>Matomo {{ majorversion }} Plugins</title>
     <link rel="stylesheet" href="/libs/bootstrap.min.css">
     <style>
-		.matomo3 {
+		.doesnt_support_new {
 			background: lightcoral;
 		}
 
-		.matomo4 {
+		.supports_new {
 			background: lightgreen;
 		}
 
@@ -58,7 +58,7 @@
 <body>
 <div class="container">
     <h1 class="mt-5">Matomo Plugins</h1>
-    <p class="lead">Tracking the current progress in making all Matomo plugins support Matomo 4!</p>
+    <p class="lead">Tracking the current progress in making all Matomo plugins support Matomo {{ majorversion }}!</p>
     <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: {{ fraction }}%;" aria-valuenow="{{ fraction }}"
              aria-valuemin="0" aria-valuemax="100">
@@ -66,11 +66,11 @@
         </div>
     </div>
     {% for name,plugin in plugins.items() %}
-        <div class="card {% if plugin.supports4 %}matomo4{% else %}matomo3{% endif %}">
+        <div class="card {% if plugin.supports_new %}supports_new{% else %}doesnt_support_new{% endif %}">
             <div class="card-body">
-                <div class="supports">{% if plugin.supports4 %}✓{% else %}✗{% endif %}</div>
+                <div class="supports">{% if plugin.supports_new %}✓{% else %}✗{% endif %}</div>
                 <h5 class="card-title">
-                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion={% if plugin.supports4 %}4{% else %}3{% endif %}"
+                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion={% if plugin.supports_new %}4{% else %}3{% endif %}"
                        target="marketplace" rel="noopener">
                         {{ name }}
                     </a>
@@ -109,7 +109,7 @@
                     <dt class="col-sm-3">Supports Versions</dt>
                     <dd class="col-sm-9">{{ plugin.supports_version }}</dd>
                 </dl>
-                {% if plugin.issue is defined and plugin.issue and not plugin.supports4 %}
+                {% if plugin.issue is defined and plugin.issue and not plugin.supports_new %}
                     <p><a href="{{ plugin.issue }}" target="github_issue" rel="noopener">Github issue</a></p>
                 {% endif %}
                 {% if plugin.note is defined %}
@@ -117,6 +117,10 @@
                         <strong>Note:</strong> {{ plugin.note|safe }}
                     </p>
                 {% endif %}
+            <details>
+                <summary>Raw Data</summary>
+                <pre><code>{{ plugin|tojson(indent=2) }}</code></pre>
+            </details>
             </div>
         </div>
     {% endfor %}
