@@ -91,9 +91,8 @@
                     by
                     {% for author in plugin.authors %}
                         <a href="{{ author.homepage }}" class="{% if author.name == "Matomo" %}byMatomo{% endif %}"
-                           target="homepage" rel="noopener">
-                            {{ author.name }}{% if not loop.last %},{% endif %}
-                        </a>
+                           target="homepage" rel="noopener">{{ author.name }}</a>{% if not loop.last %},{% endif %}
+
                     {% endfor %}
                 </p>
                 {% if plugin.isTheme %}
