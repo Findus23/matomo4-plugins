@@ -2,6 +2,7 @@
 node_modules/
 *.json
 !package.json
+!package-lock.json
 config.py
 __pycache__/
 public/index.html
