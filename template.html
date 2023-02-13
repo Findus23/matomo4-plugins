@@ -6,53 +6,53 @@
     <title>Matomo {{ majorversion }} Plugins</title>
     <link rel="stylesheet" href="/libs/bootstrap.min.css">
     <style>
-		.doesnt_support_new {
-			background: lightcoral;
-		}
+        .doesnt_support_new {
+            background: lightcoral;
+        }
 
-		.supports_new {
-			background: lightgreen;
-		}
+        .supports_new {
+            background: lightgreen;
+        }
 
-		.version {
-			position: absolute;
-			top: 5px;
-			right: 5px;
-		}
+        .version {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
 
-		.supports {
-			position: absolute;
-			bottom: 5px;
-			right: 5px;
-		}
+        .supports {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
 
-		.byMatomo {
-			font-weight: bold;
-		}
+        .byMatomo {
+            font-weight: bold;
+        }
 
-		.card, .progress {
-			margin-bottom: 1rem;
-		}
+        .card, .progress {
+            margin-bottom: 1rem;
+        }
 
-		svg {
-			width: 16px;
-			height: 16px;
-		}
+        svg {
+            width: 16px;
+            height: 16px;
+        }
 
-		footer {
-			display: flex;
-			justify-content: space-between;
+        footer {
+            display: flex;
+            justify-content: space-between;
 
-		}
+        }
 
-		footer span, footer a {
-			display: block;
-		}
+        footer span, footer a {
+            display: block;
+        }
 
-		.blockquote {
-			border-left: solid 5px #515050;
-			padding-left: 10px;
-		}
+        .blockquote {
+            border-left: solid 5px #515050;
+            padding-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +70,8 @@
             <div class="card-body">
                 <div class="supports">{% if plugin.supports_new %}✓{% else %}✗{% endif %}</div>
                 <h5 class="card-title">
-                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion={% if plugin.supports_new %}{{ majorversion }}{% else %}{{ majorversion - 1 }}{% endif %}"
+                    <a href="https://{% if not plugin.isTheme %}plugins{% else %}themes{% endif %}.matomo.org/{{ name }}?matomoversion=
+                            {% if plugin.supports_new %}{{ majorversion }}{% else %}{{ majorversion - 1 }}{% endif %}"
                        target="marketplace" rel="noopener">
                         {{ name }}
                     </a>
@@ -107,7 +108,24 @@
                     <dd class="col-sm-9">{{ plugin.lastUpdated }}</dd>
                     <dt class="col-sm-3">Supports Versions</dt>
                     <dd class="col-sm-9">{{ plugin.supports_version }}</dd>
+                    {% if plugin.activity %}
+                        {% if plugin.activity.lastCommitDate %}
+                            <dt class="col-sm-3">Last commit</dt>
+                            <dd class="col-sm-9">{{ plugin.activity.lastCommitDate }}</dd>
+                        {% endif %}
+                        {% if plugin.activity.numCommits %}
+                            <dt class="col-sm-3">Number of commits</dt>
+                            <dd class="col-sm-9">{{ plugin.activity.numCommits }}</dd>
+                        {% endif %}
+                        {% if plugin.activity.lastCommitDate %}
+                            <dt class="col-sm-3">Number of contributors</dt>
+                            <dd class="col-sm-9">{{ plugin.activity.numContributors }}</dd>
+                        {% endif %}
+                    {% endif %}
                 </dl>
+            {% if plugin.description %}
+                <p>{{ plugin.description }}</p>
+            {% endif %}
                 {% if plugin.issue is defined and plugin.issue and not plugin.supports_new %}
                     <p><a href="{{ plugin.issue }}" target="github_issue" rel="noopener">Github issue</a></p>
                 {% endif %}
@@ -116,10 +134,10 @@
                         <strong>Note:</strong> {{ plugin.note|safe }}
                     </p>
                 {% endif %}
-            <details>
-                <summary>Raw Data</summary>
-                <pre><code>{{ plugin|tojson(indent=2) }}</code></pre>
-            </details>
+                <details>
+                    <summary>Raw Data</summary>
+                    <pre><code>{{ plugin|tojson(indent=2) }}</code></pre>
+                </details>
             </div>
         </div>
     {% endfor %}
